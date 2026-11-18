@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activities 2 and 3 Report - Big Data</title>
+  <style>
+    :root {
+      --ink: #1f2937;
+      --muted: #5b6472;
+      --line: #d9e0e8;
+      --accent: #174a78;
+      --soft: #eef4f9;
+      --paper: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px 16px;
+      background: #eef1f5;
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+    main {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 48px 56px;
+      background: var(--paper);
+      box-shadow: 0 4px 24px rgba(25, 40, 60, .08);
+    }
+    header {
+      text-align: center;
+      padding-bottom: 28px;
+      margin-bottom: 32px;
+      border-bottom: 3px solid var(--accent);
+    }
+    h1, h2, h3 { color: var(--accent); line-height: 1.25; }
+    h1 { font-size: 26px; margin: 0 0 12px; }
+    h2 {
+      font-size: 21px;
+      margin-top: 38px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    h3 { font-size: 17px; margin-top: 26px; }
+    p { margin: 10px 0; text-align: justify; }
+    .meta { color: var(--muted); margin: 4px 0; text-align: center; }
+    .callout {
+      background: var(--soft);
+      border-left: 4px solid var(--accent);
+      padding: 14px 18px;
+      margin: 18px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 9px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: var(--soft); color: var(--accent); }
+    code {
+      background: #f1f3f5;
+      padding: 2px 5px;
+      border-radius: 4px;
+      font-family: Consolas, monospace;
+    }
+    pre {
+      background: #f5f7fa;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 14px;
+      overflow-x: auto;
+      font-size: 13px;
+    }
+    .evidence {
+      border: 2px dashed #9aa8b7;
+      border-radius: 6px;
+      padding: 22px;
+      margin: 14px 0 22px;
+      color: var(--muted);
+      text-align: center;
+      background: #fafbfd;
+    }
+    .evidence strong { display: block; color: var(--ink); margin-bottom: 6px; }
+    footer {
+      margin-top: 42px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+    @media print {
+      body { background: white; padding: 0; }
+      main { box-shadow: none; max-width: none; padding: 20mm; }
+      .evidence { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Report on the Development of Activities 2 and 3</h1>
+    <p class="meta"><strong>Course:</strong> Big Data Project Management and Design Models</p>
+    <p class="meta"><strong>Student:</strong> Camilo Andrés Cañón Meneses</p>
+    <p class="meta"><strong>University:</strong> Universidad Nacional Abierta y a Distancia – UNAD</p>
+  </header>
+
+  <section>
+    <h2>Introduction</h2>
+    <p>
+      This report presents the development of activities related to data representation, storage, and organization using Python, JSON, and MySQL. In Activity 2, a Python dictionary containing information about three employees was created and exported to a JSON file. In Activity 3, a relational database was implemented in MySQL to store an order. Additionally, a JSON document with nested information about a customer, a product, and its shipment was created.
+    </p>
+  </section>
+
+  <section>
+    <h2>Activity 2. NoSQL Fundamentals Using Python and JSON</h2>
+
+    <h3>Objective</h3>
+    <p>
+      Build a data structure using Python dictionaries to store information about three employees, add the seniority and country fields, and export the records to a file named <code>employees.json</code>.
+    </p>
+
+    <h3>Development</h3>
+    <p>
+      The <code>employees.py</code> program was created using the standard <code>json</code> library. The main structure, named <code>employees</code>, contains three records. Each record groups the employee attributes and an internal <code>information</code> object containing the subject and grade.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th><th>Age</th><th>Alias</th><th>Subject</th>
+          <th>Grade</th><th>Seniority (years)</th><th>Country</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Walter</td><td>26</td><td>Developer</td><td>History</td><td>B</td><td>2</td><td>Colombia</td></tr>
+        <tr><td>Rian</td><td>45</td><td>Data Engineer</td><td>Physics</td><td>A</td><td>10</td><td>USA</td></tr>
+        <tr><td>Johana</td><td>46</td><td>Data Scientist</td><td>Physics</td><td>A+</td><td>7</td><td>Argentina</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Exporting to JSON</h3>
+    <p>
+      The <code>json.dump()</code> function was used to generate the file. It serializes the Python structure and writes it to a JSON document. The <code>indent=4</code> parameter displays the data with indentation, while <code>ensure_ascii=False</code> preserves special characters. The resulting file was named <code>employees.json</code>.
+    </p>
+
+    <div class="callout">
+      <strong>Result:</strong> The program ran successfully and generated the <code>employees.json</code> file with the three employees and the requested fields.
+    </div>
+
+    
+<div class="evidence">
+  <strong>Figure 1. Python code used to create the employees.json file</strong>
+  <img
+    src="imagenes/actividad2_codigo.png"
+    alt="Código Python"
+    style="width:100%; max-width:850px; display:block; margin:20px auto;"
+>
+  <p><em>Nota. Elaboración propia.</em></p>
+</div>
+
+<div class="evidence">
+  <strong>Figure 2. Generated JSON file</strong>
+  <img
+    src="imagenes/actividad2_json.png"
+    alt="Contenido del archivo employees.json"
+    style="width:100%; max-width:850px; display:block; margin:20px auto;"
+  >
+  <p><em>Nota. Elaboración propia.</em></p>
+</div>
+</section>
+
+  <section>
+    <h2>Activity 3. Implementation of SQL and NoSQL Databases</h2>
+
+    <h3>Objective</h3>
+    <p>
+      Implement two storage approaches: a relational database using MySQL and a JSON document with nested objects to represent order information.
+    </p>
+
+    <h3>Part A. SQL Database Using MySQL</h3>
+    <p>
+      The <code>bd_compras</code> database was created in MySQL Workbench, along with the <code>cliente1_pedidos</code> table. The table contains the following fields: OrderId, OrderDate, ProductName, ProductPrice, CustomerFirstName, CustomerLastName, CustomerEmail, CustomerCountry, ShippingMode, and DeliveryStatus.
+    </p>
+    <p>
+      A sample record was inserted with ID 1, date February 10, 2025, product Laptop Lenovo, price 2500.00, customer Julio Eduardo Nejia, email julio@email.com, country Colombia, Premium shipping mode, and Delivered status. The query <code>SELECT * FROM cliente1_pedidos;</code> was used to review the stored record.
+    </p>
+
+   
+<div class="evidence">
+  <strong>Figure 3. Database and table creation</strong>
+  <img
+    src="imagenes/actividad3_mysql.png"
+    alt="Base de datos bd_compras y tabla cliente1_pedidos en MySQL Workbench"
+    style="width:100%; max-width:850px; display:block; margin:20px auto;"
+  >
+  <p><em>Nota. Elaboración propia.</em></p>
+</div>
+
+<div class="evidence">
+  <strong>Figure 4. Order query using SQL</strong>
+  <img
+    src="imagenes/actividad3_consulta.png"
+    alt="Resultado de SELECT * FROM cliente1_pedidos"
+    style="width:100%; max-width:850px; display:block; margin:20px auto;"
+  >
+  <p><em>Nota. Elaboración propia.</em></p>
+</div>
+</section>
+
+    <h3>Part B. NoSQL Document Using JSON</h3>
+    <p>
+      The <code>cliente2_pedidos.json</code> file was created to represent order ID 55. The document is organized into three nested objects: <code>Customer</code>, which contains Ana Torres’s details and her country (Chile); <code>Product</code>, which records a Samsung Smartwatch priced at 899.99 with availability set to Available; and <code>Shipping</code>, which includes the Node Express shipping method, an estimated delivery time of three days, In transit status, and Low delay risk.
+    </p>
+    <p>
+      The document syntax was checked in PowerShell using the command <code>python -m json.tool cliente2_pedidos.json</code>. The tool displayed the content correctly formatted without reporting syntax errors.
+    </p>
+
+   
+<div class="evidence">
+  <strong>Figure 5. JSON document for the second order</strong>
+  <img
+    src="imagenes/actividad3_json.png"
+    alt="Contenido del archivo cliente2_pedidos.json"
+    style="width:100%; max-width:850px; display:block; margin:20px auto;"
+  >
+  <p><em>Nota. Elaboración propia.</em></p>
+</div>
+
+<div class="evidence">
+  <strong>Figure 6. JSON document validation using Python</strong>
+  <img
+    src="imagenes/actividad3_validacion.png"
+    alt="Validación del archivo JSON en PowerShell"
+    style="width:100%; max-width:850px; display:block; margin:20px auto;"
+  >
+  <p><em>Nota. Elaboración propia.</em></p>
+</div>
+</section>
+
+    <h3>Comparative Analysis</h3>
+    <p>
+      The exercise made it possible to identify that the SQL relational model organizes data into tables with defined columns and records, making structured queries easier to perform. In contrast, JSON documents allow related information to be grouped into nested objects and represent flexible structures. The choice between these approaches depends on the application requirements and on how the information needs to be queried and managed.
+    </p>
+  </section>
+
+  <section>
+    <h2>Conclusions</h2>
+    <p>
+      The development of this activity made it possible to apply Python data structures, generate JSON documents, and perform basic creation, insertion, and query operations in MySQL. Differences between relational storage and document-based representation were also identified, showing that both approaches offer useful ways to organize information according to the needs of each technological solution.
+    </p>
+  </section>
+
+  <section>
+    <h2>References</h2>
+    <p>Python Software Foundation. (n.d.). <em>json — JSON encoder and decoder</em>.
+      https://docs.python.org/3/library/json.html</p>
+    <p>Oracle. (n.d.). <em>MySQL 8.4 Reference Manual</em>.
+      https://dev.mysql.com/doc/refman/8.4/en/</p>
+  </section>
+
+  <footer>
+    Activities 2 and 3 Report ·
+  </footer>
+</main>
+</body>
+</html>
